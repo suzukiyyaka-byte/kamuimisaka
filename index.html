@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>カムイみさかスキー場 | 千葉の子どもたちに、はじめての雪遊び体験を。</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts (Noto Sans JP) & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0284c7',       // 抜けるような冬の青空
+              sky: '#38bdf8',        // 明るい水色
+              light: '#f0f9ff',      // 雪景色のベース
+              pink: '#f43f5e',       // わくわくアクセントピンク
+              yellow: '#facc15',     // 元気なアクセントイエロー
+              orange: '#fb923c',     // 暖かいオレンジ
+              navy: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      color: #334155;
+      background-color: #f8fafc;
+      overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .pop-shadow {
+      box-shadow: 0 12px 30px -6px rgba(2, 132, 199, 0.22), 0 6px 14px -3px rgba(0, 0, 0, 0.08);
+    }
+    /* 滲みをなくし、くっきりと視認性を高めた文字シャドウ */
+    .text-stroke-white {
+      text-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+    }
+    .cloud-bg {
+      background: radial-gradient(circle at 50% 120%, #ffffff 60%, #e0f2fe 100%);
+    }
+  </style>
+</head>
+<body class="pb-28">
+
+  <!-- ヘッダー -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm py-2">
+    <div class="max-w-xl mx-auto px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="bg-brand-sky text-white text-xs font-black px-2.5 py-1 rounded-full">山梨・御坂</span>
+        <h1 class="text-lg sm:text-xl font-black tracking-tight text-brand-blue">カムイみさか</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#family-discount" class="bg-brand-pink hover:bg-rose-600 text-white text-xs sm:text-sm font-black px-4 py-2 rounded-full shadow-md transition flex items-center gap-1.5 animate-pulse">
+          <i class="fa-solid fa-tag"></i>お得な割引
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. ファーストビュー：スマホ大画面仕様 -->
+  <section class="relative bg-gradient-to-b from-sky-400 via-sky-200 to-slate-50 pt-6 pb-12 px-4 overflow-hidden">
+    <div class="max-w-xl mx-auto text-center relative z-10">
+      
+      <!-- キャッチコピーバッジ -->
+      <div class="inline-block bg-white text-brand-blue font-extrabold text-sm sm:text-base px-5 py-2 rounded-full shadow-md mb-4 border-2 border-brand-yellow">
+        ❄️ 千葉の子育てファミリーへ特別な冬のご案内 ❄️
+      </div>
+
+      <!-- メインコピー -->
+      <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight drop-shadow-md mb-3">
+        千葉の子どもたちに、<br>
+        <span class="text-brand-yellow text-stroke-white text-4xl sm:text-6xl block mt-1">はじめての雪遊び体験</span>を。
+      </h2>
+
+      <!-- サブコピー -->
+      <p class="text-sky-950 font-bold text-base sm:text-lg mt-3 mb-6 leading-relaxed">
+        家族で出かける、冬の雪遊びデビュー。<br>いつもの休日を、忘れられない特別な雪の日に。
+      </p>
+
+      <!-- メインビジュアル画像：スマホで確実に大きく見せる設計 -->
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white mb-6 bg-sky-100">
+        <img 
+          src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_39%20(1).png" 
+          alt="雪の上で笑顔を見せるファミリー" 
+          class="w-full h-auto block object-cover max-h-[380px] sm:max-h-[460px] mx-auto" 
+          onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_39 (1).png';" 
+        />
+        <div class="absolute bottom-3 left-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs sm:text-sm font-black px-4 py-2.5 rounded-2xl shadow-md text-center">
+          🛷 キッズタウン完備！ソリ・チュービング・雪玉あそびOK
+        </div>
+      </div>
+
+      <!-- 表示する要点リスト：文字サイズ拡大 -->
+      <div class="bg-white rounded-3xl p-6 shadow-xl border border-sky-100 text-left mb-6">
+        <p class="text-base sm:text-lg font-black text-brand-blue mb-4 flex items-center gap-2 border-b border-sky-100 pb-2">
+          <i class="fa-solid fa-sparkles text-brand-yellow text-xl"></i> カムイみさかが選ばれる安心ポイント
+        </p>
+        <div class="space-y-3 text-sm sm:text-base font-bold text-slate-700">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sky-100 text-brand-blue flex items-center justify-center text-sm font-black shrink-0 mt-0.5">✓</span>
+            <span><strong>雪遊びが初めて</strong>のお子さまも安心の独立エリア</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sky-100 text-brand-blue flex items-center justify-center text-sm font-black shrink-0 mt-0.5">✓</span>
+            <span>スキー板を履かなくても<strong>ソリ・チュービング</strong>で大満足</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sky-100 text-brand-blue flex items-center justify-center text-sm font-black shrink-0 mt-0.5">✓</span>
+            <span>パパママが見渡しやすい<strong>コンパクトで迷子知らず</strong>なゲレンデ</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sky-100 text-brand-blue flex items-center justify-center text-sm font-black shrink-0 mt-0.5">✓</span>
+            <span>家族みんなでお得な<strong>リフト最大30%OFF「ファミリー割引」</strong></span>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-sky-100 text-brand-blue flex items-center justify-center text-sm font-black shrink-0 mt-0.5">✓</span>
+            <span>運転不要！<strong>千葉駅発直行バスや電車＋路線バス</strong>でも行ける</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 誘導ボタン群：親指で押しやすい大きなボタン -->
+      <div class="space-y-3">
+        <a href="#family-discount" class="block w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-black py-4 px-4 rounded-2xl shadow-xl text-base sm:text-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-percent text-xl"></i>お得なファミリー割引を見る
+        </a>
+        <a href="#kids-town" class="block w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-black py-4 px-4 rounded-2xl shadow-lg text-base sm:text-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-snowman text-xl"></i>キッズ雪遊びの内容を見る
+        </a>
+        <a href="#access" class="block w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-black py-4 px-4 rounded-2xl shadow-lg text-base sm:text-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-bus text-xl"></i>行き方（直行バス・電車・車）
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. きらきら千葉版連動企画 -->
+  <section id="kirakira" class="py-12 px-4 bg-amber-50 border-y border-amber-200">
+    <div class="max-w-xl mx-auto bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-brand-yellow relative">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-black text-xs sm:text-sm px-6 py-1.5 rounded-full shadow">
+        紙面掲載QRコード連動企画
+      </div>
+      
+      <div class="text-center mt-3 mb-5">
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-800">
+          「きらきら千葉版」を<br>ご覧のご家族へ
+        </h3>
+        <p class="text-sm font-extrabold text-brand-pink mt-1">千葉の子育てファミリー限定のご案内</p>
+      </div>
+
+      <!-- チラシ画像をスマホで大きく掲載 -->
+      <div class="mb-5">
+        <img src="kamimks202512_kiji_03-990.png" alt="きらきら千葉掲載チラシ連動" class="w-full rounded-2xl shadow-md border border-amber-200 object-contain max-h-72 mx-auto" />
+      </div>
+
+      <div class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-3">
+        <p>
+          千葉県内では、普段の生活で子どもがたっぷりの雪に触れたり、ソリで思いきり滑ったりする機会はなかなかありません。
+        </p>
+        <div class="font-bold text-sky-900 bg-sky-50 p-4 rounded-2xl border border-sky-100 text-sm sm:text-base">
+          そこで「きらきら千葉版」では、千葉のご家族が安心して冬の思い出をつくれる旅先として、カムイみさかの雪遊び体験を大特集しました！
+        </div>
+        <p class="text-xs sm:text-sm text-slate-500">
+          ※紙面限定クーポンや、JR千葉駅発の日帰り直行バス運行情報も本ページでご案内しています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 子どもに体験させたい冬の一日（スマホで写真を特大・縦積みに） -->
+  <section class="py-14 px-4 bg-white">
+    <div class="max-w-xl mx-auto text-center">
+      <span class="text-xs sm:text-sm font-black tracking-widest text-brand-blue uppercase bg-sky-100 px-4 py-1.5 rounded-full">Winter Memory</span>
+      <h3 class="text-2xl sm:text-4xl font-black text-slate-800 mt-3 mb-4 leading-tight">
+        見るだけじゃない。<br>
+        触って、滑って、笑い合う雪体験。
+      </h3>
+      <p class="text-sm sm:text-base text-slate-600 mb-8 leading-relaxed">
+        スキー場は「滑れる大人の場所」と思っていませんか？カムイみさかなら、板を履かなくても、雪に触れるだけで子どもたちの満開の笑顔に出会えます。
+      </p>
+
+      <!-- 体験ステップ：1つ1つの写真を特大表示（縦並び） -->
+      <div class="space-y-6 text-left">
+        
+        <!-- STEP 1 -->
+        <div class="bg-sky-50/60 rounded-3xl overflow-hidden border border-sky-100 shadow-md">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_39%20(2).png" alt="はじめて雪に触れる子どもたち" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_39 (2).png';" />
+          <div class="p-5">
+            <span class="inline-block text-xs font-black bg-sky-500 text-white px-3 py-1 rounded-full mb-2">STEP 1</span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">はじめて雪に触れる！雪玉づくり</h4>
+            <p class="text-sm sm:text-base text-slate-600 mt-1">
+              「つめたい！」「さらさらしてる！」雪玉を丸めたり、雪だるまを作ったり。千葉では味わえない白銀の感触に子どもたちも大はしゃぎ！
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="bg-pink-50/60 rounded-3xl overflow-hidden border border-pink-100 shadow-md">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_39%20(3).png" alt="親子でソリとチュービング" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_39 (3).png';" />
+          <div class="p-5">
+            <span class="inline-block text-xs font-black bg-pink-500 text-white px-3 py-1 rounded-full mb-2">STEP 2</span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">専用エリアで安心！親子でソリ遊び</h4>
+            <p class="text-sm sm:text-base text-slate-600 mt-1">
+              スキーヤーが入ってこない完全独立の「キッズタウン」だから安心。パパやママと一緒にスピードに乗って風を切る楽しさは格別です。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="bg-amber-50/60 rounded-3xl overflow-hidden border border-amber-100 shadow-md">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_40%20(4).png" alt="はじめてのスキー挑戦" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_40 (4).png';" />
+          <div class="p-5">
+            <span class="inline-block text-xs font-black bg-amber-500 text-white px-3 py-1 rounded-full mb-2">STEP 3</span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">慣れてきたら、スキーにも挑戦</h4>
+            <p class="text-sm sm:text-base text-slate-600 mt-1">
+              専用の緩斜面「ファミリーコース」でスキーデビュー！パパママが手を添えながら、少しずつ一人で滑れる達成感を体験。
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="bg-emerald-50/60 rounded-3xl overflow-hidden border border-emerald-100 shadow-md">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_01_48%20(2).png" alt="帰りの車内で眠る子どもたち" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_01_48 (2).png';" />
+          <div class="p-5">
+            <span class="inline-block text-xs font-black bg-emerald-500 text-white px-3 py-1 rounded-full mb-2">STEP 4</span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">温かいごはんと、帰りの夢の中へ</h4>
+            <p class="text-sm sm:text-base text-slate-600 mt-1">
+              いっぱい遊んで美味しいカレーを食べたら「楽しかった、また来ようね！」。帰りの座席ではぐっすり夢の中へ。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. カムイみさかが家族におすすめな3つの理由 -->
+  <section class="py-14 px-4 bg-gradient-to-b from-sky-50 to-white">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-800 leading-tight">
+          カムイみさかが<br>
+          <span class="text-brand-blue">家族におすすめな3つの理由</span>
+        </h3>
+        <p class="text-sm text-slate-500 mt-2">千葉のパパ・ママに選ばれている安心の理由</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 理由1 -->
+        <div class="bg-white rounded-3xl p-6 border border-sky-100 shadow-md">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 font-black text-lg flex items-center justify-center shrink-0">
+              01
+            </div>
+            <h4 class="font-black text-base sm:text-lg text-slate-800">
+              スキーをしなくても「雪遊びだけ」で丸一日楽しめる！
+            </h4>
+          </div>
+          <p class="text-sm sm:text-base text-slate-600 mt-2">
+            ソリ専用の「キッズタウン」や「チュービングコース」を完備。一般ゲレンデとネットで完全に仕切られているため、小さなお子さまも安全に雪遊びを満喫できます。
+          </p>
+        </div>
+
+        <!-- 理由2 -->
+        <div class="bg-white rounded-3xl p-6 border border-sky-100 shadow-md">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-brand-blue font-black text-lg flex items-center justify-center shrink-0">
+              02
+            </div>
+            <h4 class="font-black text-base sm:text-lg text-slate-800">
+              コンパクト＆見通しのよいゲレンデで迷子知らず
+            </h4>
+          </div>
+          <p class="text-sm sm:text-base text-slate-600 mt-2">
+            山全体が広がりすぎず見渡しやすい設計。初心者や家族専用の緩斜面「ファミリーコース」や、未就学児〜小学生専用のスキースクールも充実しています。
+          </p>
+        </div>
+
+        <!-- 理由3 -->
+        <div class="bg-white rounded-3xl p-6 border border-sky-100 shadow-md">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-brand-pink font-black text-lg flex items-center justify-center shrink-0">
+              03
+            </div>
+            <h4 class="font-black text-base sm:text-lg text-slate-800">
+              直行バス・電車・マイカー！家族に合わせた行き方
+            </h4>
+          </div>
+          <p class="text-sm sm:text-base text-slate-600 mt-2">
+            雪道運転が心配なご家庭には「千葉駅発の日帰り直行バス（運行実績あり）」や「電車＋路線バス」のルートを完備。車がなくても家族みんなで雪山へ行けます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. キッズタウン（ソリ専用ゲレンデ） -->
+  <section id="kids-town" class="py-14 px-4 bg-white border-t border-slate-100">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-6">
+        <span class="inline-block bg-brand-pink text-white font-black text-xs sm:text-sm px-4 py-1.5 rounded-full mb-2">ソリ専用ゲレンデ</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-800 leading-tight">
+          スキーが初めてでも大丈夫。<br>安心のキッズタウン！
+        </h3>
+      </div>
+
+      <div class="bg-gradient-to-b from-sky-50 to-pink-50 rounded-3xl p-5 sm:p-6 border border-sky-100 shadow-lg">
+        <!-- キッズタウン現地写真を大きく配置 -->
+        <div class="space-y-4 mb-6">
+          <div class="rounded-2xl overflow-hidden shadow border-2 border-white relative">
+            <img src="キッズタウン・そりimg_kidstown.jpg" alt="カムイみさかキッズタウンのアーチ" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='img_kidstown.jpg';" />
+            <div class="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-xl text-center">
+              🟡 ワクワクの入口！ここから先は子どもたちの雪の王国
+            </div>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden shadow border-2 border-white relative">
+            <img src="キッズタウン・そりscr01.jpg" alt="ネットで区切られた安心のソリ専用ゲレンデ" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='カムイみさかキッズタウン.jpg';" />
+            <div class="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-xl text-center">
+              🛷 一般コースと完全隔離！スキーヤー侵入なしで安心安全
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm sm:text-base font-bold text-slate-700 mb-6">
+          <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-sky-100">
+            <i class="fa-solid fa-person-walking text-brand-blue text-lg w-6 text-center"></i>
+            <span>歩かずラクラク登れる<strong>「動く歩道」</strong>完備</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-pink-100">
+            <i class="fa-solid fa-shield-heart text-brand-pink text-lg w-6 text-center"></i>
+            <span>スキーヤーが入ってこない<strong>ソリ専用エリア</strong></span>
+          </div>
+          <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-amber-100">
+            <i class="fa-solid fa-shapes text-amber-500 text-lg w-6 text-center"></i>
+            <span>雪玉づくりなど自由に遊べる<strong>雪遊びゾーン</strong></span>
+          </div>
+          <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-emerald-100">
+            <i class="fa-solid fa-user-group text-emerald-600 text-lg w-6 text-center"></i>
+            <span>保護者の方も一緒に入場してサポート可能</span>
+          </div>
+        </div>
+
+        <!-- 実際のそり遊び風景写真を配置 -->
+        <div class="mb-5 rounded-2xl overflow-hidden shadow border border-sky-200">
+          <img src="親子・家族そりkv.jpg" alt="親子でそりを楽しむ様子" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='親子・家族そりkv (1).jpg';" />
+        </div>
+
+        <!-- 昨シーズン参考情報BOX -->
+        <div class="bg-white p-5 rounded-2xl border border-sky-200 text-sm text-slate-700">
+          <div class="font-black text-brand-blue text-base flex justify-between items-center mb-2">
+            <span>キッズタウンご利用案内</span>
+            <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded">昨シーズン参考</span>
+          </div>
+          <p class="py-0.5">・<strong>対象：</strong> 小学生まで</p>
+          <p class="py-0.5">・<strong>料金：</strong> お子さま 1人1日 700円（大人は無料！）</p>
+          <p class="py-0.5">・<strong>営業時間：</strong> 9:00〜16:30（予定）</p>
+        </div>
+
+        <!-- キッズタウン公式案内看板画像 -->
+        <div class="mt-5 rounded-2xl overflow-hidden shadow-md border border-amber-300">
+          <img src="キッズタウン料金案内05.jpg" alt="キッズタウン入場料金・営業時間・ムービングベルト完備の案内看板" class="w-full h-auto block" />
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="mt-4 pt-4 border-t border-slate-200">
+          <details class="text-xs sm:text-sm text-slate-500 cursor-pointer group">
+            <summary class="font-bold text-sky-700 flex items-center justify-between">
+              <span>⚠️ ソリ持ち込み・利用ルール（開く）</span>
+              <i class="fa-solid fa-chevron-down transition group-open:rotate-180"></i>
+            </summary>
+            <div class="mt-3 bg-white p-4 rounded-xl border border-slate-200 space-y-1.5 text-xs text-slate-600">
+              <p>※安全のため、金属製やブレーキのない大型ソリの持ち込みはできません。</p>
+              <p>※一般的なプラスチック製ソリはお持ち込みいただけます（レンタルもございます）。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. チュービング -->
+  <section class="py-12 px-4 bg-slate-50">
+    <div class="max-w-xl mx-auto">
+      <div class="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-slate-200">
+        <!-- チュービング専用エアーコースの実物写真 -->
+        <div class="rounded-2xl overflow-hidden shadow-md mb-4 border border-slate-100 relative">
+          <img 
+            src="キッズタウン・そりfeature02.png" 
+            alt="キッズタウンの大人気チュービングコース" 
+            class="w-full h-auto object-cover max-h-96" 
+            onerror="this.onerror=null; this.src='キッズタウン・そりfeature02.jpg';" 
+          />
+          <div class="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-xl text-center">
+            🍩 クッション性の高い専用エアーコースだからパパも子どもも大はしゃぎ！
+          </div>
+        </div>
+
+        <span class="inline-block bg-amber-400 text-amber-950 font-black text-xs px-3.5 py-1 rounded-full mb-2">爽快スリル</span>
+        <h4 class="text-xl sm:text-2xl font-black text-slate-800 mb-2">
+          雪の上を、親子で思いきり滑ろう！
+        </h4>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+          キッズタウン内に設置された専用チュービングコース！大きな円形ボートに乗って雪上を滑る爽快感は子どもたちに大人気です。
+        </p>
+        <div class="text-xs sm:text-sm bg-amber-50 text-amber-950 font-bold p-4 rounded-2xl border border-amber-200 w-full">
+          <p>・<strong>利用条件：</strong>自分でグリップをしっかり握れるお子さま〜</p>
+          <p class="mt-1">・<strong>昨シーズン参考料金：</strong>1回 500円</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ファミリーコース・スキースクール（写真大） -->
+  <section id="courses" class="py-14 px-4 bg-white">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-6">
+        <span class="text-xs sm:text-sm font-black text-brand-blue uppercase bg-sky-100 px-4 py-1.5 rounded-full">Ski Debut</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-800 mt-3 leading-tight">
+          雪遊びの次は、<br>はじめてのスキーへ。
+        </h3>
+      </div>
+
+      <!-- ファミリーコースカード -->
+      <div class="bg-sky-50 rounded-3xl p-5 border-2 border-brand-sky shadow-lg mb-6">
+        <div class="rounded-2xl overflow-hidden shadow-md mb-4">
+          <img src="親子・家族cp01.jpg" alt="ファミリーコースで笑顔のファミリー" class="w-full h-72 sm:h-80 object-cover" onerror="this.onerror=null; this.src='親子・家族kv-sp.jpg';" />
+        </div>
+
+        <div class="inline-block bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
+          初心者・家族専用
+        </div>
+        <h4 class="text-xl font-black text-slate-800 mb-2">ファミリーコース</h4>
+        <p class="text-sm sm:text-base text-slate-600 mb-4 leading-relaxed">
+          隣接コースと仕切られた<strong>スキー専用の緩斜面</strong>。上級者の猛スピード滑走が入り込まないため、お子さまのファーストステップにこれ以上ない安心感です。
+        </p>
+        
+        <div class="rounded-2xl overflow-hidden shadow border border-sky-200 mb-4">
+          <img src="スキー写真.jpg" alt="広々としたファミリーコースを気持ちよく滑る様子" class="w-full h-64 sm:h-72 object-cover" />
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center text-xs sm:text-sm font-black text-sky-900">
+          <div class="bg-white py-2 rounded-xl border border-sky-200">全長 300m</div>
+          <div class="bg-white py-2 rounded-xl border border-sky-200">平均斜度 9度</div>
+          <div class="bg-white py-2 rounded-xl border border-sky-200">最大斜度 15度</div>
+        </div>
+      </div>
+
+      <!-- スキースクール実物写真カード -->
+      <div class="bg-amber-50/70 rounded-3xl p-5 border border-amber-200 shadow-md mb-6">
+        <div class="rounded-2xl overflow-hidden shadow-md mb-4 relative">
+          <img src="キッズスクールscr02.jpg" alt="楽しく体を動かすスキースクールレッスン" class="w-full h-64 sm:h-72 object-cover" />
+          <div class="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-xl text-center">
+            🎿 先生と一緒に体操からスタート！初めてでも怖くない
+          </div>
+        </div>
+        <h4 class="text-lg sm:text-xl font-black text-slate-800 mb-2">
+          🔰 お子さま専用スキースクールも充実
+        </h4>
+        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+          未就学児〜小学生を対象としたキッズレッスンを開講。プロの優しいインストラクターが、用具の履き方や安全な転び方から丁寧に指導してくれます。
+        </p>
+
+        <!-- スクール料金案内画像 -->
+        <div class="rounded-2xl overflow-hidden shadow border border-amber-300">
+          <img src="スクール料金04.jpg" alt="SAJ公認スキースクール・JSBA公認スノーボードスクール料金案内" class="w-full h-auto block" />
+        </div>
+      </div>
+
+      <!-- 晴天のゲレンデ全体の賑わい写真 -->
+      <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-md mb-6">
+        <div class="rounded-2xl overflow-hidden shadow-md mb-3">
+          <img src="スキー場イメージE5A4495.jpg" alt="青空の下、家族連れやスキーヤーで賑わうカムイみさかスキー場" class="w-full h-64 sm:h-72 object-cover" />
+        </div>
+        <p class="text-sm font-bold text-slate-700 text-center">
+          ☀️ 晴天率が高く、青空の下で快適に楽しめる開放的なゲレンデ
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="http://misaka.kamui-resort.com/gelande.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-bold text-sky-700 bg-sky-50 border border-sky-300 px-6 py-3 rounded-full hover:bg-sky-100 transition">
+          <i class="fa-solid fa-map"></i>詳しいゲレンデマップを公式サイトで見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ファミリー割引（主役：特大ハイライト表示） -->
+  <section id="family-discount" class="py-14 px-4 bg-gradient-to-b from-rose-500 via-rose-600 to-pink-600 text-white relative overflow-hidden">
+    <div class="max-w-xl mx-auto text-center relative z-10">
+      <span class="inline-block bg-brand-yellow text-slate-900 font-black text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-md mb-3">
+        来場促進 ★ 大人気プラン
+      </span>
+      <h3 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-2">
+        家族で行くほど、<br>もっとお得！
+      </h3>
+      <p class="text-rose-100 font-bold text-sm sm:text-base mb-6">
+        親子3人〜5人まで、リフト1日券が通常価格から<br>
+        <span class="text-brand-yellow text-2xl sm:text-3xl font-black underline decoration-wavy">30％OFF！</span>
+      </p>
+
+      <!-- リフト券・ファミリーパック・ゲレンデマップ画像 -->
+      <div class="mb-6 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+        <img src="リフト料金01.jpg" alt="リフト券料金表・ファミリーパック案内・ゲレンデマップ" class="w-full h-auto block" />
+      </div>
+
+      <!-- 4人家族の特大ハイライト（スマホで数字を特大に） -->
+      <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl border-4 border-amber-300 mb-6">
+        <div class="inline-block bg-brand-pink text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full mb-3">
+          4人家族のいちおし例
+        </div>
+        <p class="text-base sm:text-lg font-bold text-slate-600">おとな2人 ＋ こども2人なら</p>
+        
+        <div class="my-3">
+          <span class="text-slate-400 line-through text-lg sm:text-xl font-bold block">通常 15,000円</span>
+          <div class="text-4xl sm:text-6xl font-black text-rose-600 tracking-tight my-1">
+            10,500<span class="text-xl sm:text-2xl font-bold ml-1">円</span>
+          </div>
+        </div>
+
+        <div class="text-rose-700 font-black text-lg sm:text-xl bg-rose-50 py-2.5 px-4 rounded-2xl inline-block border-2 border-rose-200 mt-1">
+          なんと <span class="text-2xl sm:text-3xl text-rose-600">4,500円</span> もおトク！
+        </div>
+      </div>
+
+      <!-- 料金一覧カードリスト（スマホで表より見やすいカード型） -->
+      <div class="space-y-2.5 text-left text-slate-800 mb-6 font-bold">
+        <div class="bg-white/95 rounded-2xl p-4 flex justify-between items-center shadow-md">
+          <div>
+            <p class="text-sm sm:text-base text-slate-800">おとな1人 ＋ こども2人</p>
+            <p class="text-xs text-slate-400 line-through">通常 10,500円</p>
+          </div>
+          <div class="text-right">
+            <span class="text-lg sm:text-xl font-black text-rose-600">7,350円</span>
+            <span class="block text-xs font-extrabold text-emerald-600">3,150円お得</span>
+          </div>
+        </div>
+
+        <div class="bg-white/95 rounded-2xl p-4 flex justify-between items-center shadow-md">
+          <div>
+            <p class="text-sm sm:text-base text-slate-800">おとな2人 ＋ こども1人</p>
+            <p class="text-xs text-slate-400 line-through">通常 12,000円</p>
+          </div>
+          <div class="text-right">
+            <span class="text-lg sm:text-xl font-black text-rose-600">8,400円</span>
+            <span class="block text-xs font-extrabold text-emerald-600">3,600円お得</span>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 rounded-2xl p-4 flex justify-between items-center shadow-md border-2 border-brand-yellow">
+          <div>
+            <span class="text-[11px] bg-rose-600 text-white px-2 py-0.5 rounded font-black">一番人気</span>
+            <p class="text-sm sm:text-base text-slate-900 font-black">おとな2人 ＋ こども2人</p>
+            <p class="text-xs text-slate-400 line-through">通常 15,000円</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xl sm:text-2xl font-black text-rose-600">10,500円</span>
+            <span class="block text-xs font-black text-rose-600">4,500円お得</span>
+          </div>
+        </div>
+
+        <div class="bg-white/95 rounded-2xl p-4 flex justify-between items-center shadow-md">
+          <div>
+            <p class="text-sm sm:text-base text-slate-800">おとな2人 ＋ こども3人</p>
+            <p class="text-xs text-slate-400 line-through">通常 18,000円</p>
+          </div>
+          <div class="text-right">
+            <span class="text-lg sm:text-xl font-black text-rose-600">12,600円</span>
+            <span class="block text-xs font-extrabold text-emerald-600">5,400円お得</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ボタン群 -->
+      <div class="space-y-3">
+        <button onclick="shareLine()" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-black py-4 px-6 rounded-2xl shadow-xl text-base sm:text-lg transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-line text-2xl"></i>家族にLINEで教える
+        </button>
+      </div>
+
+      <p class="text-xs text-rose-200 mt-4 leading-relaxed">
+        ※チケット売場窓口にてご購入いただけます。こども対象年齢等の最新情報は公式サイトをご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 11. 手ぶらでも安心！レンタル案内 -->
+  <section class="py-14 px-4 bg-slate-100">
+    <div class="max-w-xl mx-auto text-center">
+      <span class="text-xs sm:text-sm font-black tracking-widest text-brand-blue uppercase bg-sky-100 px-4 py-1.5 rounded-full">Gear Rental</span>
+      <h3 class="text-2xl sm:text-3xl font-black text-slate-800 mt-3 mb-2 leading-tight">
+        手ぶらで来ても大丈夫！<br>
+        充実のレンタルサービス
+      </h3>
+      <p class="text-sm sm:text-base text-slate-600 mb-6 leading-relaxed">
+        お子さま用の小さなスキー板（80cm〜）・ブーツ（15cm〜）・ウェア（100cm〜）から、パパママ用まで豊富にご用意。
+      </p>
+
+      <!-- レンタル料金表画像 -->
+      <div class="rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white mb-4">
+        <img src="レンタル料金06.jpg" alt="スキー・スノーボード・ウェアレンタル料金表とキッズ用レンタル用品サイズ案内" class="w-full h-auto block" />
+      </div>
+
+      <p class="text-xs text-slate-500">
+        ※グローブ・ゴーグル・帽子は衛生管理のためレンタルはございません（売店にて販売中）。
+      </p>
+    </div>
+  </section>
+
+  <!-- 13. パパ・ママにも安心な施設＆グルメ（カレー写真大） -->
+  <section class="py-14 px-4 bg-white">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-6">
+        <span class="text-xs sm:text-sm font-black text-brand-blue uppercase bg-sky-100 px-4 py-1.5 rounded-full">Food & Relax</span>
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-800 mt-3 leading-tight">
+          家族で囲む、<br>あたたかいゲレンデごはん。
+        </h3>
+      </div>
+
+      <!-- カレーの写真（特大表示） -->
+      <div class="bg-gradient-to-b from-amber-50 to-orange-50 rounded-3xl p-5 sm:p-6 border border-amber-200 shadow-lg mb-6">
+        <div class="rounded-2xl overflow-hidden shadow-md mb-4">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_01_48%20(1).png" alt="ゲレンデレストランでカレーを食べる家族" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_01_48 (1).png';" />
+        </div>
+        <h4 class="font-black text-lg sm:text-xl text-slate-800 mb-2">
+          🍴 雪遊びのあとは、みんなであったかランチ！
+        </h4>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          子どもたちが大好きな「定番カツカレー」や「ラーメン」、ボリューム満点の「ローストビーフ丼」「焼肉丼」など、雪遊びでお腹をすかせた家族にぴったりなメニューが勢ぞろい！
+        </p>
+      </div>
+
+      <!-- 施設案内アイコン -->
+      <div class="grid grid-cols-2 gap-3 text-center">
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+          <i class="fa-solid fa-restroom text-2xl text-sky-600 mb-1"></i>
+          <p class="font-bold text-sm text-slate-800">広い更衣室完備</p>
+          <p class="text-xs text-slate-500">着替えもスムーズ</p>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+          <i class="fa-solid fa-vault text-2xl text-sky-600 mb-1"></i>
+          <p class="font-bold text-sm text-slate-800">大型コインロッカー</p>
+          <p class="text-xs text-slate-500">荷物が多くても安心</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. アクセスパート（行きと帰りの写真を大迫力で縦並び配置） -->
+  <section id="access" class="py-14 px-4 bg-gradient-to-b from-sky-100 via-sky-50 to-slate-100">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="inline-block bg-brand-blue text-white font-black text-xs sm:text-sm px-4 py-1.5 rounded-full shadow mb-2">
+          アクセス・行き方
+        </span>
+        <h3 class="text-2xl sm:text-4xl font-black text-slate-800 leading-tight">
+          行き方も、<br>家族に合わせて選べます。
+        </h3>
+        <p class="text-base sm:text-lg text-sky-950 font-bold mt-2">
+          運転しない雪遊びなら、パパもママもゆったり。
+        </p>
+      </div>
+
+      <!-- 写真：行きと帰りのドラマを特大写真で魅せる -->
+      <div class="space-y-5 mb-8">
+        <!-- 行き写真 -->
+        <div class="rounded-3xl overflow-hidden shadow-xl border-4 border-white relative">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_40%20(5).png" alt="行きの列車で雪景色を見つめる家族" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_40 (5).png';" />
+          <div class="absolute bottom-3 left-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl text-center">
+            🚆 行き：車窓に広がる真っ白な雪景色に子どもたちもワクワク！
+          </div>
+        </div>
+
+        <!-- 帰り写真 -->
+        <div class="rounded-3xl overflow-hidden shadow-xl border-4 border-white relative">
+          <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_01_48%20(2).png" alt="帰りの車内で眠る子どもたちを見守る両親" class="w-full h-64 sm:h-72 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_01_48 (2).png';" />
+          <div class="absolute bottom-3 left-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl text-center">
+            😴 帰り：いっぱい雪遊びして、帰りの車内ではぐっすり夢の中へ
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+
+        <!-- 15. 千葉駅から直行バス -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-brand-blue shadow-lg relative overflow-hidden">
+          <div class="bg-brand-blue text-white text-xs font-black px-3 py-1 rounded-full inline-block mb-3">
+            昨シーズン運行実績あり！
+          </div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center text-lg font-black shrink-0">
+              <i class="fa-solid fa-bus"></i>
+            </span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">
+              JR千葉駅から、乗り換えなし！
+            </h4>
+          </div>
+          <div class="text-sm sm:text-base text-slate-600 space-y-2 mt-3">
+            <p><strong>【運行実績】</strong> JR千葉駅東口発着・朝発日帰り（滞在 約7時間）</p>
+            <p><strong>【メリット】</strong> 往復バス＋リフト1日券がセット。移動中にお子さまが寝てしまっても大丈夫。パパも運転疲れなしで楽しめます！</p>
+            <div class="bg-blue-50 text-blue-900 p-3 rounded-2xl text-xs sm:text-sm font-bold border border-blue-100 mt-2">
+              🚌 パパも渋滞の運転疲れ知らず！家族みんなで休めます。
+            </div>
+            <p class="text-xs text-slate-400 mt-1">※今シーズンの運行日・料金・発着場所は運行会社より発表され次第、最新情報へ更新いたします。</p>
+          </div>
+        </div>
+
+        <!-- 16. 電車＋路線バス -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-black shrink-0">
+              <i class="fa-solid fa-train"></i>
+            </span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">
+              電車＋路線バスで、のんびり旅
+            </h4>
+          </div>
+          <div class="text-sm sm:text-base text-slate-600 space-y-2 mt-3">
+            <p>千葉から電車で山梨へ。甲府駅・富士山駅・河口湖駅からはカムイみさか方面の接続バスが運行。電車好きのお子さまにおすすめ！</p>
+            <div class="bg-emerald-50 text-emerald-950 p-3 rounded-2xl text-xs sm:text-sm font-bold border border-emerald-100">
+              往復バス＋リフト1日券セット参考：おとな 3,800円 / こども 2,200円
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. マイカー -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-md">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg font-black shrink-0">
+              <i class="fa-solid fa-car"></i>
+            </span>
+            <h4 class="font-black text-lg sm:text-xl text-slate-800">
+              時間を自由に使いたい家族はマイカー
+            </h4>
+          </div>
+          <div class="text-sm sm:text-base text-slate-600 space-y-2 mt-3">
+            <p>中央自動車道「一宮御坂IC」または「河口湖IC」よりアクセス。荷物が多い小さなお子さま連れもマイペースに移動できます。</p>
+            <p class="text-xs font-bold text-rose-600 bg-rose-50 p-3 rounded-2xl border border-rose-200">
+              ⚠️【冬用タイヤ装着のお願い】スタッドレスタイヤまたはチェーンを必ずご携行ください。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 公式アクセスマップ案内画像 -->
+      <div class="mt-6 rounded-3xl overflow-hidden shadow-lg border-4 border-white bg-white">
+        <img src="アクセスマップ02.jpg" alt="カムイみさかスキー場への道路マップ・インターチェンジからの所要時間案内" class="w-full h-auto block" />
+      </div>
+
+      <!-- Googleマップ案内ボタン -->
+      <div class="mt-6 bg-white rounded-3xl p-5 border border-slate-200 shadow-md text-center">
+        <h5 class="font-bold text-sm sm:text-base text-slate-800 mb-3">
+          🗺️ Googleマップでルート・時刻を調べる
+        </h5>
+        <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm font-bold">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=カムイみさかスキー場" target="_blank" rel="noopener" class="bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl border border-slate-300">
+            現在地から
+          </a>
+          <a href="https://www.google.com/maps/dir/千葉駅/カムイみさかスキー場" target="_blank" rel="noopener" class="bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 px-2 rounded-xl border border-slate-300">
+            千葉駅から
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 20. チラシ連動特典・Webクーポン -->
+  <section id="coupon" class="py-12 px-4 bg-amber-50">
+    <div class="max-w-xl mx-auto bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-4 border-dashed border-amber-400 relative">
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white font-black text-xs sm:text-sm px-5 py-1.5 rounded-full shadow">
+        きらきら千葉 読者限定
+      </div>
+
+      <div class="text-center my-3">
+        <h4 class="text-2xl font-black text-slate-800">
+          スキー場利用 Webクーポン
+        </h4>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">窓口でスマホ画面をご提示ください</p>
+      </div>
+
+      <div class="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-2xl p-5 my-5 border border-amber-300 text-center">
+        <p class="text-xs font-black text-amber-800">読者限定特典</p>
+        <p class="text-xl sm:text-2xl font-black text-rose-600 my-1">
+          レンタル・施設利用 特典クーポン
+        </p>
+        <p class="text-xs text-slate-600">※詳細な特典内容は窓口にてご案内</p>
+      </div>
+
+      <!-- クーポン利用ボタン -->
+      <div id="coupon-area" class="text-center">
+        <button id="use-coupon-btn" onclick="useCoupon()" class="w-full bg-gradient-to-r from-brand-pink to-rose-600 text-white font-black py-4 rounded-2xl shadow-lg text-base hover:opacity-90 transition">
+          【係員確認用】クーポンを提示して使う
+        </button>
+      </div>
+      <div id="coupon-used-msg" class="hidden text-center bg-slate-100 p-4 rounded-2xl border border-slate-300">
+        <span class="text-sm font-black text-slate-500">✓ このクーポンは使用済みです</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 21. 最終来場案内（特大写真） -->
+  <section class="py-16 px-4 bg-gradient-to-b from-sky-400 via-sky-300 to-white text-center relative overflow-hidden">
+    <div class="max-w-xl mx-auto relative z-10">
+      
+      <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white mb-6">
+        <img src="ChatGPT%20Image%202026%E5%B9%B49%E6%9C%8816%E6%97%A5%2010_02_39%20(1).png" alt="雪の上で笑顔を咲かせる家族4人" class="w-full h-72 sm:h-80 object-cover" onerror="this.onerror=null; this.src='ChatGPT Image 2026年9月16日 10_02_39 (1).png';" />
+      </div>
+
+      <h3 class="text-3xl sm:text-5xl font-black text-white leading-tight drop-shadow-md mb-3">
+        この冬、家族で<br>はじめての雪遊びへ。
+      </h3>
+      <p class="text-sky-950 font-bold text-base sm:text-lg mb-8 leading-relaxed">
+        雪に触れる一日が、<br>家族のずっと残る思い出になる。
+      </p>
+
+      <div class="space-y-3.5">
+        <a href="#family-discount" class="block w-full bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-black py-4 px-6 rounded-2xl shadow-xl text-base sm:text-lg transition">
+          <i class="fa-solid fa-tag mr-2"></i>お得なファミリー割引を見る
+        </a>
+        <a href="#access" class="block w-full bg-white text-sky-800 font-black py-4 px-6 rounded-2xl shadow-lg text-base sm:text-lg transition border border-sky-200">
+          <i class="fa-solid fa-route mr-2"></i>行き方（バス・電車・車）を調べる
+        </a>
+        <button onclick="shareLine()" class="block w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-black py-4 px-6 rounded-2xl shadow-lg text-base sm:text-lg transition">
+          <i class="fa-brands fa-line mr-2 text-xl"></i>LINEで家族に送る
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 22. 営業情報 -->
+  <section class="py-12 px-4 bg-slate-50 border-t border-slate-200 text-xs sm:text-sm text-slate-600">
+    <div class="max-w-xl mx-auto">
+      <h4 class="font-black text-slate-800 text-base mb-3 text-center">
+        営業情報・お問い合わせ
+      </h4>
+
+      <div class="bg-white rounded-3xl p-5 border border-slate-200 space-y-2 mb-4">
+        <p>・<strong>所在地：</strong> 〒406-0813 山梨県笛吹市御坂町上黒駒5321-1</p>
+        <p>・<strong>お問い合わせ：</strong> TEL 055-264-2122</p>
+        <p>・<strong>営業時間：</strong> 8:30〜16:30（リフト 9:00〜）</p>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="http://misaka.kamui-resort.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-bold text-sky-700 hover:underline">
+          カムイみさかスキー場 公式ホームページへ <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 23. スマートフォン固定ボトムメニュー：タップエリアを拡大 -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.12)] py-2.5 px-4">
+    <div class="max-w-md mx-auto grid grid-cols-3 gap-2.5 text-center">
+      
+      <!-- お得情報 -->
+      <a href="#family-discount" class="flex flex-col items-center justify-center py-2 bg-rose-50 hover:bg-rose-100 rounded-2xl text-brand-pink transition border border-rose-200">
+        <i class="fa-solid fa-percent text-lg"></i>
+        <span class="text-xs font-black mt-1">お得情報</span>
+      </a>
+
+      <!-- 行き方 -->
+      <a href="#access" class="flex flex-col items-center justify-center py-2 bg-sky-50 hover:bg-sky-100 rounded-2xl text-brand-blue transition border border-sky-200">
+        <i class="fa-solid fa-bus text-lg"></i>
+        <span class="text-xs font-black mt-1">行き方</span>
+      </a>
+
+      <!-- LINE共有 -->
+      <button onclick="shareLine()" class="flex flex-col items-center justify-center py-2 bg-emerald-50 hover:bg-emerald-100 rounded-2xl text-[#06C755] transition border border-emerald-200">
+        <i class="fa-brands fa-line text-xl"></i>
+        <span class="text-xs font-black mt-1">LINE共有</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- スクリプト：LINE共有・URLコピー・クーポン処理 -->
+  <script>
+    // LINE共有機能
+    function shareLine() {
+      const title = encodeURIComponent("千葉の子どもたちに、はじめての雪遊び体験を！カムイみさかスキー場のファミリー割引（最大30%OFF）がすごいよ！❄️");
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://social-plugins.line.me/lineit/share?url=${url}&text=${title}`, '_blank');
+    }
+
+    // URLコピー機能
+    function copyUrl() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert("ページURLをコピーしました！メッセージに貼り付けて家族に送れます。");
+        });
+      } else {
+        alert("URL: " + window.location.href);
+      }
+    }
+
+    // クーポン使用シミュレーション
+    function useCoupon() {
+      if (confirm("【確認】係員と一緒にボタンを押してください。使用済みにしますか？")) {
+        document.getElementById('coupon-area').classList.add('hidden');
+        document.getElementById('coupon-used-msg').classList.remove('hidden');
+      }
+    }
+  </script>
+
+</body>
+</html>
