@@ -8,7 +8,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <script>
@@ -28,7 +28,6 @@
             }
           },
           fontFamily: {
-            // Apple標準のSF Pro + ヒラギノ角ゴシック
             sans: [
               '-apple-system',
               'BlinkMacSystemFont',
@@ -39,11 +38,6 @@
               'Meiryo',
               'sans-serif'
             ]
-          },
-          letterSpacing: {
-            'tightest': '-0.035em',
-            'tighter': '-0.02em',
-            'wide-apple': '0.08em'
           }
         }
       }
@@ -59,12 +53,10 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
-    /* Apple特有のSFスタイルのタイポグラフィカーニング */
     h1, h2, h3, .apple-headline {
       letter-spacing: -0.025em;
     }
 
-    /* Apple風の微細な境界線とシャドウ */
     .apple-card {
       background-color: #ffffff;
       border-radius: 24px;
@@ -77,26 +69,18 @@
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.07);
     }
 
-    /* Apple風のグラデーションテキスト */
     .apple-gradient-blue {
       background: linear-gradient(135deg, #0071e3 0%, #4facfe 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .apple-gradient-coral {
-      background: linear-gradient(135deg, #ff3b30 0%, #ff9500 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
-    /* すりガラスナビゲーションバー */
     .apple-nav-blur {
       background-color: rgba(255, 255, 255, 0.82);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
     }
 
-    /* Apple風のピル型リンク */
     .apple-button-primary {
       background-color: #0071e3;
       color: #ffffff;
@@ -121,13 +105,28 @@
 
 <body class="pb-28 sm:pb-20">
 
+  <!-- プレビュー画面からワンクリックでHTMLを保存・コピーできる補助バー -->
+  <div id="download-helper-bar" class="fixed top-14 sm:top-16 right-4 z-50 flex items-center gap-2 bg-[#1d1d1f]/90 backdrop-blur-md text-white px-3.5 py-2 rounded-2xl shadow-2xl border border-white/10 text-xs">
+    <span class="hidden sm:inline text-white/70 text-[11px]">ファイル保存:</span>
+    <button onclick="downloadHtmlFile()" class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-3 py-1.5 rounded-xl font-semibold inline-flex items-center gap-1.5 shadow-sm transition-all active:scale-95">
+      <i class="fa-solid fa-download"></i>
+      <span>HTML保存</span>
+    </button>
+    <button onclick="copyAllHtml()" class="bg-white/10 hover:bg-white/20 text-white px-2.5 py-1.5 rounded-xl font-medium inline-flex items-center gap-1 transition-all active:scale-95">
+      <i class="fa-regular fa-copy"></i>
+      <span>コード全コピー</span>
+    </button>
+    <button onclick="document.getElementById('download-helper-bar').remove()" class="text-white/40 hover:text-white text-xs pl-1">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
   <!-- トースト通知 -->
   <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-[#1d1d1f]/90 backdrop-blur-md text-white font-medium text-xs px-5 py-2.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-2 flex items-center gap-2 border border-white/10">
     <i class="fa-solid fa-check text-[#30d158] text-sm"></i>
-    <span id="toast-msg">URLをコピーしました</span>
+    <span id="toast-msg">完了しました</span>
   </div>
 
-  <!-- Apple風 すりガラスナビゲーションバー -->
   <header class="fixed top-0 left-0 right-0 z-40 apple-nav-blur border-b border-black/[0.08] transition-all">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-12 sm:h-14 flex items-center justify-between">
       
@@ -187,7 +186,7 @@
           いつもの休日を、家族みんなの特別な雪の日に。
         </p>
 
-        <!-- 3つの誘導ボタン（Appleピル型スタイル） -->
+        <!-- 3つの誘導ボタン -->
         <div class="pt-3 flex flex-wrap items-center justify-center gap-3">
           <a href="#experience" class="apple-button-primary px-6 py-2.5 text-sm font-medium shadow-sm inline-flex items-center gap-1.5">
             <span>雪遊びの内容を見る</span>
@@ -228,7 +227,7 @@
           </div>
         </div>
 
-        <!-- 5つの要点（Bento Grid風ミニマルカード） -->
+        <!-- 5つの要点（Bento Grid風） -->
         <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 mt-4">
           <div class="apple-card p-4 text-center space-y-1">
             <i class="fa-solid fa-face-smile text-[#0071e3] text-lg mb-1"></i>
@@ -301,7 +300,7 @@
       
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-[#86868b]">Experience</span>
-        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#1d1d1f]">
+        <h2 class="text-3xl sm:5xl font-bold tracking-tight text-[#1d1d1f]">
           見るだけじゃない。<br>
           <span class="text-[#0071e3]">触って、滑って、笑い合う雪体験。</span>
         </h2>
@@ -310,7 +309,7 @@
         </p>
       </div>
 
-      <!-- Bento Grid レイアウト（Appleスタイル） -->
+      <!-- Bento Grid レイアウト -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- STEP 01 -->
@@ -341,7 +340,7 @@
           </div>
         </div>
 
-        <!-- STEP 03: 親子でソリに乗る（※トリミング位置調整済み） -->
+        <!-- STEP 03: 親子でソリに乗る -->
         <div class="apple-card apple-card-hover overflow-hidden flex flex-col justify-between">
           <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed]">
             <img 
@@ -360,7 +359,7 @@
           </div>
         </div>
 
-        <!-- STEP 04: チュービング（※画像指定準拠） -->
+        <!-- STEP 04: チュービング -->
         <div class="apple-card apple-card-hover overflow-hidden flex flex-col justify-between">
           <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed]">
             <img src="キッズタウン・そりfeature02.png" alt="チュービングに挑戦する" class="w-full h-full object-cover">
@@ -424,12 +423,28 @@
   <section id="reasons" class="py-20 sm:py-24 bg-white border-t border-black/[0.06]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-[#86868b]">Why Kamui Misaka</span>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f]">
           カムイみさかが家族におすすめな3つの理由
         </h2>
         <p class="text-sm text-[#86868b]">子育てファミリーが気兼ねなく楽しめる環境が整っています。</p>
+      </div>
+
+      <!-- おすすめの理由 イメージ大写真（.jpg更新済み） -->
+      <div class="mb-12 rounded-3xl overflow-hidden shadow-xl border border-black/[0.06] aspect-[16/9] sm:aspect-[21/9] bg-white relative group">
+        <img 
+          src="ChatGPT Image 2026年9月16日 17_53_52 (5).jpg" 
+          alt="澄み渡る雪山を背景に笑顔で駆け出す男の子と笑顔で見守るお母さん" 
+          class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
+          style="object-position: center 32%;"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-8 text-white space-y-1">
+          <span class="inline-block bg-[#0071e3] text-xs font-semibold px-3 py-1 rounded-full">家族みんなが笑顔になれる場所</span>
+          <h3 class="text-lg sm:text-2xl font-bold">子どももパパ・ママも、無理なく思いきり楽しめるゲレンデ設計。</h3>
+          <p class="hidden sm:block text-xs text-white/90">晴天率が高くコンパクトで見通しの良いコースだから、安心して冬の思い出がつくれます。</p>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -605,7 +620,7 @@
 
       </div>
 
-      <!-- チュービング紹介（※画像指定準拠） -->
+      <!-- チュービング紹介 -->
       <div class="mt-12 apple-card p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-5 space-y-3">
           <span class="text-xs font-semibold uppercase tracking-wider text-[#ff3b30]">Tubing Track</span>
@@ -745,7 +760,7 @@
         </p>
       </div>
 
-      <!-- 特に大きく見せる例（Apple Special Card） -->
+      <!-- Apple Special Card -->
       <div class="p-8 sm:p-12 rounded-3xl bg-[#1d1d1f] text-white shadow-2xl relative overflow-hidden mb-8">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
           <div class="space-y-2">
@@ -822,7 +837,7 @@
   <section class="py-16 bg-white border-t border-black/[0.06]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
       
-      <!-- セクション10：その他のお得なチケット -->
+      <!-- その他のお得なチケット -->
       <div>
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 gap-2">
           <div>
@@ -870,14 +885,28 @@
         </details>
       </div>
 
-      <!-- セクション11：道具がなくても大丈夫（レンタル） -->
+      <!-- セクション11：道具がなくても大丈夫（レンタル：.jpg画像更新済み） -->
       <div id="rental" class="pt-8 border-t border-black/[0.06]">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Gear Rental</span>
           <h3 class="text-2xl sm:text-3xl font-bold text-[#1d1d1f]">
             家族分の道具をそろえなくても、気軽に雪デビュー。
           </h3>
-          <p class="text-xs text-[#86868b]">子ども用サイズも豊富に完備しています。</p>
+          <p class="text-xs text-[#86868b]">子ども用サイズも豊富に完備。手ぶら感覚で気軽にお越しいただけます。</p>
+        </div>
+
+        <!-- レンタルイメージ大写真（.jpg） -->
+        <div class="mb-8 rounded-3xl overflow-hidden shadow-lg border border-black/[0.06] aspect-[16/9] sm:aspect-[21/9] bg-white relative group">
+          <img 
+            src="06_rental_fitting_centered.jpg" 
+            alt="レンタルコーナーで家族みんなでスキーブーツをフィッティングする笑顔の様子" 
+            class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 sm:left-6 text-white space-y-0.5">
+            <span class="inline-block bg-[#0071e3] text-[10px] font-semibold px-2.5 py-0.5 rounded-full mb-1">安心のサポート</span>
+            <p class="text-sm sm:text-base font-bold">ぴったりサイズをスタッフがサポート。初めてでも快適に準備できます。</p>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -914,7 +943,7 @@
         </p>
       </div>
 
-      <!-- セクション12：スクール -->
+      <!-- スクール -->
       <div id="school" class="pt-8 border-t border-black/[0.06]">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           <div class="lg:col-span-5 space-y-3">
@@ -949,7 +978,7 @@
         </div>
       </div>
 
-      <!-- セクション13：施設＆食事（※ゲレンデごはん画像アスペクト比調整済み） -->
+      <!-- 施設＆食事 -->
       <div class="pt-8 border-t border-black/[0.06]">
         <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <span class="text-xs font-semibold uppercase tracking-wider text-[#86868b]">Facilities</span>
@@ -967,7 +996,6 @@
             </p>
           </div>
           <div class="md:col-span-5">
-            <!-- aspect-[16/10]で人物が切れない設定 -->
             <div class="rounded-2xl overflow-hidden border border-black/[0.06] aspect-[16/10] shadow-sm">
               <img 
                 src="ChatGPT Image 2026年9月16日 10_01_48 (1).png" 
@@ -985,7 +1013,7 @@
   <section id="access-options" class="py-20 sm:py-28">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
         <span class="text-xs font-semibold uppercase tracking-wider text-[#0071e3]">Access</span>
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f]">
           行き方も、家族に合わせて選べます。
@@ -998,10 +1026,25 @@
         </p>
       </div>
 
-      <!-- 3つの選択肢カード（セクション15, 16, 18） -->
+      <!-- アクセスイメージ大写真（家族で直行バスへ・.jpg更新済み） -->
+      <div class="mb-12 rounded-3xl overflow-hidden shadow-xl border border-black/[0.06] aspect-[16/9] sm:aspect-[21/9] bg-white relative group">
+        <img 
+          src="09_family_tour_bus_centered.jpg" 
+          alt="青空の下、家族みんなで笑顔いっぱいに直行ツアーバスに乗り込む様子" 
+          class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-8 text-white space-y-1">
+          <span class="inline-block bg-[#0071e3] text-xs font-semibold px-3 py-1 rounded-full">雪道運転なしでラクラク</span>
+          <h3 class="text-lg sm:text-2xl font-bold">乗るだけで雪景色へ。家族みんながリラックスできるアクセス。</h3>
+          <p class="hidden sm:block text-xs text-white/90">千葉駅からの直行バスや電車旅など、運転する人の負担ゼロでお出かけできます。</p>
+        </div>
+      </div>
+
+      <!-- 3つの選択肢カード -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         
-        <!-- セクション15：千葉駅から直行バス -->
+        <!-- 千葉駅から直行バス -->
         <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
           <div class="space-y-3">
             <div class="flex justify-between items-start">
@@ -1027,7 +1070,7 @@
           </div>
         </div>
 
-        <!-- セクション16：電車＋路線バス -->
+        <!-- 電車＋路線バス -->
         <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
           <div class="space-y-3">
             <div class="flex justify-between items-start">
@@ -1052,7 +1095,7 @@
           </div>
         </div>
 
-        <!-- セクション18：マイカー -->
+        <!-- マイカー -->
         <div class="apple-card p-6 sm:p-8 flex flex-col justify-between">
           <div class="space-y-3">
             <div class="flex justify-between items-start">
@@ -1078,7 +1121,7 @@
 
       </div>
 
-      <!-- セクション17：Googleマップ連携とアクセスマップ画像 -->
+      <!-- Googleマップ連携とアクセスマップ画像 -->
       <div class="apple-card p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-6">
           <div class="rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm bg-white">
@@ -1127,36 +1170,60 @@
     </div>
   </section>
 
-  <section class="py-16 bg-white border-y border-black/[0.06]">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-5">
+  <section class="py-16 sm:py-20 bg-white border-y border-black/[0.06]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
       
-      <div class="w-12 h-12 rounded-full bg-[#06C755] text-white flex items-center justify-center text-2xl mx-auto shadow-sm">
-        <i class="fa-brands fa-line"></i>
-      </div>
+      <div class="apple-card p-6 sm:p-10 border border-black/[0.06] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- 左側：家族や友人でスマホを見るシーン画像（.jpg更新済み） -->
+        <div class="md:col-span-6">
+          <div class="rounded-2xl overflow-hidden border border-black/[0.06] aspect-[4/3] shadow-md relative group">
+            <img 
+              src="10_family_friend_share_centered.jpg" 
+              alt="こたつを囲んで家族や友だちと一緒にスマートフォンを見ながら楽しく旅行計画を立てる様子" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute bottom-3 left-3 bg-[#1d1d1f]/80 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full">
+              冬休みの予定をみんなで相談
+            </div>
+          </div>
+        </div>
 
-      <div class="space-y-1">
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1d1d1f]">
-          この冬、みんなで行かない？
-        </h2>
-        <p class="text-xs sm:text-sm text-[#515154] max-w-md mx-auto leading-relaxed">
-          パパ・ママ同士の相談や、祖父母・お友達家族へのお誘いに。<br>
-          LINEでこのページを送って、冬休みの予定を話し合ってみませんか？
-        </p>
-      </div>
+        <!-- 右側：お誘い文言と共有ボタン -->
+        <div class="md:col-span-6 space-y-5 text-center md:text-left">
+          
+          <div class="w-12 h-12 rounded-full bg-[#06C755] text-white flex items-center justify-center text-2xl mx-auto md:mx-0 shadow-sm">
+            <i class="fa-brands fa-line"></i>
+          </div>
 
-      <div class="flex flex-wrap justify-center gap-2.5 pt-2">
-        <button onclick="shareToLine()" class="bg-[#06C755] hover:bg-[#05b34c] text-white px-6 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-all">
-          <i class="fa-brands fa-line text-base"></i>
-          <span>LINEで家族に送る</span>
-        </button>
-        <button onclick="shareBySMS()" class="bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 transition-all">
-          <i class="fa-solid fa-comment-sms text-[#0071e3]"></i>
-          <span>SMSで送る</span>
-        </button>
-        <button onclick="copyCurrentUrl()" class="bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 transition-all">
-          <i class="fa-regular fa-copy text-[#86868b]"></i>
-          <span>URLをコピー</span>
-        </button>
+          <div class="space-y-1.5">
+            <span class="text-xs font-semibold uppercase tracking-wider text-[#06C755]">Share with Family & Friends</span>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#1d1d1f]">
+              この冬、みんなで行かない？
+            </h2>
+            <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
+              パパ・ママ同士の相談や、祖父母・お友達家族へのお誘いに。<br>
+              LINEでこのページを送って、冬休みの予定を話し合ってみませんか？
+            </p>
+          </div>
+
+          <div class="flex flex-wrap justify-center md:justify-start gap-2.5 pt-1">
+            <button onclick="shareToLine()" class="bg-[#06C755] hover:bg-[#05b34c] text-white px-5 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-all">
+              <i class="fa-brands fa-line text-base"></i>
+              <span>LINEで家族に送る</span>
+            </button>
+            <button onclick="shareBySMS()" class="bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] px-4 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 transition-all">
+              <i class="fa-solid fa-comment-sms text-[#0071e3]"></i>
+              <span>SMS</span>
+            </button>
+            <button onclick="copyCurrentUrl()" class="bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] px-4 py-2.5 rounded-full text-xs font-semibold inline-flex items-center gap-2 transition-all">
+              <i class="fa-regular fa-copy text-[#86868b]"></i>
+              <span>URLコピー</span>
+            </button>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
@@ -1221,7 +1288,6 @@
   <section class="py-20 sm:py-28 bg-white border-t border-black/[0.06]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
       
-      <!-- 開放的な家族大写真 -->
       <div class="rounded-3xl overflow-hidden shadow-xl border border-black/[0.06] aspect-[16/9] max-w-2xl mx-auto relative group">
         <img src="親子・家族kv-sp.jpg" alt="青空の下でスノーボードとスキーを持って笑顔の家族" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700">
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
@@ -1239,7 +1305,6 @@
         </p>
       </div>
 
-      <!-- 最終ボタン群 -->
       <div class="flex flex-wrap justify-center gap-2.5 pt-2">
         <a href="#family-pack" class="apple-button-primary px-6 py-2.5 text-xs font-semibold shadow-xs">
           お得なチケットを見る
@@ -1299,6 +1364,7 @@
     </div>
   </footer>
 
+  <!-- モバイル用 固定下部バー -->
   <div class="fixed bottom-0 inset-x-0 z-40 apple-nav-blur border-t border-black/[0.08] px-4 py-2.5 sm:hidden">
     <div class="grid grid-cols-3 gap-2">
       <a href="#family-pack" class="flex flex-col items-center justify-center py-1 rounded-xl bg-[#ff3b30] text-white text-[11px] font-semibold">
@@ -1316,7 +1382,7 @@
     </div>
   </div>
 
-  <!-- ファミリー割引モーダル（Appleシートスタイル） -->
+  <!-- ファミリー割引モーダル -->
   <div id="familyModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 text-left space-y-4 shadow-2xl border border-black/[0.08]">
       <div class="flex justify-between items-center pb-3 border-b border-black/[0.06]">
@@ -1341,7 +1407,42 @@
   </div>
 
   <script>
-    // GA4 イベント計測ヘルパー（構成案24準拠）
+    // ワンクリックでHTMLファイルをダウンロード保存する機能
+    function downloadHtmlFile() {
+      try {
+        const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "index.html";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast("index.html をダウンロードしました！");
+      } catch (err) {
+        copyAllHtml();
+      }
+    }
+
+    // 全コードをクリップボードにコピーする補助機能
+    function copyAllHtml() {
+      try {
+        const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        const dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = htmlContent;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        showToast("全HTMLコードをコピーしました！");
+      } catch (err) {
+        showToast("コピーに失敗しました");
+      }
+    }
+
+    // GA4 イベント計測ヘルパー
     function trackEvent(eventName, params = {}) {
       if (typeof gtag === 'function') {
         gtag('event', eventName, params);
@@ -1387,7 +1488,7 @@
       }, 2400);
     }
 
-    // モーダル
+    // モーダル制御
     function openModal(id) {
       document.getElementById(id).classList.remove('hidden');
     }
@@ -1395,7 +1496,7 @@
       document.getElementById(id).classList.add('hidden');
     }
 
-    // クーポン使用処理（スタンプ化）
+    // クーポン使用処理
     function useCoupon() {
       trackEvent('coupon_used');
       document.getElementById('coupon-unused').classList.add('hidden');
