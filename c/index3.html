@@ -296,10 +296,21 @@
       <!-- Bento Grid レイアウト -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- STEP 01 -->
+        <!-- STEP 01：軽量動画（表示領域に入ったときだけ読み込み・自動再生） -->
         <div class="apple-card apple-card-hover overflow-hidden flex flex-col justify-between">
-          <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed]">
-            <img src="ChatGPT Image 2026年9月16日 10_02_39 (1).png" alt="はじめて雪に触れる" class="w-full h-full object-cover">
+          <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed] relative">
+            <video id="snow-touch-video"
+                   class="w-full h-full object-cover"
+                   autoplay muted loop playsinline preload="none"
+                   poster="01_snow_touch_poster.webp"
+                   data-src="snow_touch_01_optimized.mp4"
+                   aria-label="はじめて雪に触れて楽しむ家族の短い動画"></video>
+            <button id="snow-touch-toggle" type="button"
+                    aria-label="動画を再生"
+                    title="動画を再生・一時停止"
+                    class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center shadow-md hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50 transition-colors">
+              <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+            </button>
           </div>
           <div class="p-6">
             <span class="text-[11px] font-semibold text-[#86868b] tracking-wide">01</span>
@@ -371,10 +382,20 @@
           </div>
         </div>
 
-        <!-- STEP 06 -->
+        <!-- STEP 06：軽量動画（画面内のみ無音ループ再生） -->
         <div class="apple-card apple-card-hover overflow-hidden flex flex-col justify-between">
-          <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed]">
-            <img src="ChatGPT Image 2026年9月16日 10_01_48 (1).png" alt="温かい食事を楽しむ" class="w-full h-full object-cover">
+          <div class="aspect-[4/3] overflow-hidden bg-[#e8e8ed] relative">
+            <video id="meal-step06-video"
+                   class="w-full h-full object-cover"
+                   autoplay muted loop playsinline preload="none"
+                   poster="06_meal_poster_4x3.webp"
+                   data-src="kamui_meal_optimized.mp4"
+                   aria-label="レストランで温かい食事を楽しむ家族の動画"></video>
+            <button id="meal-step06-toggle" type="button"
+                    aria-label="動画を再生" title="動画を再生・一時停止"
+                    class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center shadow-md hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50 transition-colors">
+              <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+            </button>
           </div>
           <div class="p-6">
             <span class="text-[11px] font-semibold text-[#86868b] tracking-wide">06</span>
@@ -996,12 +1017,18 @@
             </p>
           </div>
           <div class="md:col-span-5">
-            <div class="rounded-2xl overflow-hidden border border-black/[0.06] aspect-[16/10] shadow-sm">
-              <img 
-                src="ChatGPT Image 2026年9月16日 10_01_48 (1).png" 
-                alt="出来立てのカレーライスを笑顔で食べる子どもたちと両親" 
-                class="w-full h-full object-cover object-center"
-              />
+            <div class="rounded-2xl overflow-hidden border border-black/[0.06] aspect-[16/10] shadow-sm relative">
+              <video id="meal-menu-video"
+                     class="w-full h-full object-cover object-center"
+                     autoplay muted loop playsinline preload="none"
+                     poster="meal_menu_poster_16x10.webp"
+                     data-src="kamui_meal_optimized.mp4"
+                     aria-label="カレーなどの温かい食事を楽しむ家族の動画"></video>
+              <button id="meal-menu-toggle" type="button"
+                      aria-label="動画を再生" title="動画を再生・一時停止"
+                      class="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center shadow-md hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50 transition-colors">
+                <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -1471,6 +1498,134 @@
       document.getElementById('used-date').textContent = now.toLocaleString('ja-JP');
       showToast('クーポンを使用済みにしました');
     }
+
+
+    // STEP 01：必要になったときだけ動画をダウンロードし、画面外では停止する
+    (() => {
+      const video = document.getElementById('snow-touch-video');
+      const toggle = document.getElementById('snow-touch-toggle');
+      if (!video || !toggle) return;
+      const icon = toggle.querySelector('i');
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const saveData = !!(navigator.connection && navigator.connection.saveData);
+      let inView = false;
+      let userPaused = false;
+
+      function updateButton() {
+        const playing = !video.paused;
+        icon.classList.toggle('fa-play', !playing);
+        icon.classList.toggle('fa-pause', playing);
+        toggle.setAttribute('aria-label', playing ? '動画を一時停止' : '動画を再生');
+      }
+
+      function startVideo() {
+        if (!video.src) {
+          video.src = video.dataset.src;
+          video.load();
+        }
+        const promise = video.play();
+        if (promise && typeof promise.catch === 'function') {
+          promise.catch(() => { updateButton(); });
+        }
+      }
+
+      // 通信量削減モード・動きを減らす設定では自動読み込みをしない
+      function handleVisibility(visible) {
+        inView = visible;
+        if (visible && !document.hidden && !reduceMotion && !saveData && !userPaused) {
+          startVideo();
+        } else {
+          video.pause();
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          handleVisibility(entries[0].isIntersecting);
+        }, { threshold: 0.2 });
+        observer.observe(video);
+      } else {
+        handleVisibility(true);
+      }
+
+      toggle.addEventListener('click', () => {
+        if (!video.paused) {
+          userPaused = true;
+          video.pause();
+        } else {
+          userPaused = false;
+          startVideo();
+        }
+      });
+
+      video.addEventListener('play', updateButton);
+      video.addEventListener('pause', updateButton);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) video.pause();
+        else if (inView && !userPaused && !reduceMotion && !saveData) startVideo();
+      });
+      updateButton();
+    })();
+
+    // 食事動画：2か所で同じ軽量MP4を利用。画面内だけ再生し、静止画を先行表示する。
+    (() => {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const saveData = !!(navigator.connection && navigator.connection.saveData);
+      ['meal-step06', 'meal-menu'].forEach(prefix => {
+        const video = document.getElementById(prefix + '-video');
+        const toggle = document.getElementById(prefix + '-toggle');
+        if (!video || !toggle) return;
+        const icon = toggle.querySelector('i');
+        let inView = false;
+        let userPaused = false;
+        const updateButton = () => {
+          const playing = !video.paused;
+          icon.classList.toggle('fa-play', !playing);
+          icon.classList.toggle('fa-pause', playing);
+          toggle.setAttribute('aria-label', playing ? '動画を一時停止' : '動画を再生');
+        };
+        const playVideo = () => {
+          if (!video.src) {
+            video.src = video.dataset.src;
+            video.load();
+          }
+          const p = video.play();
+          if (p && typeof p.catch === 'function') p.catch(updateButton);
+        };
+        const changeVisibility = visible => {
+          inView = visible;
+          if (visible && !document.hidden && !reduceMotion && !saveData && !userPaused) {
+            playVideo();
+          } else {
+            video.pause();
+          }
+        };
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver(entries => {
+            changeVisibility(entries[0].isIntersecting);
+          }, {threshold: 0.2});
+          observer.observe(video);
+        } else {
+          changeVisibility(true);
+        }
+        toggle.addEventListener('click', () => {
+          if (!video.paused) {
+            userPaused = true;
+            video.pause();
+          } else {
+            userPaused = false;
+            playVideo();
+          }
+        });
+        video.addEventListener('play', updateButton);
+        video.addEventListener('pause', updateButton);
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) video.pause();
+          else if (inView && !userPaused && !reduceMotion && !saveData) playVideo();
+        });
+        updateButton();
+      });
+    })();
 
     // ページビュー計測
     window.addEventListener('DOMContentLoaded', () => {
